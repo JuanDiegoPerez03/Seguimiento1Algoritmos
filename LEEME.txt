@@ -1,0 +1,35 @@
+======================================================================
+UNIVERSIDAD DEL QUINDÍO - INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+ANÁLISIS DE ALGORITMOS EN EL CONTEXTO DE LA BIBLIOMETRÍA
+======================================================================
+
+ARCHIVOS CONTENIDOS EN ESTA CARPETA:
+1. ranking_bibliometria.py:
+   Código fuente principal en Python. Realiza:
+   - Extracción de abstracts y metadatos de los 20 artículos PDF.
+   - Limpieza, tokenización y filtrado de stopwords.
+   - Implementación pura de los tres algoritmos no basados en comparaciones:
+     * Counting Sort: O(n + k)
+     * Radix Sort LSD: O(d * (n + b))
+     * Bucket Sort: O(n + k)
+   - Medición empírica en milisegundos (ms) con time.perf_counter().
+   - Validación del Top 15 y coincidencia estricta del 100%.
+   - Generación del gráfico de barras de alta resolución (top15_terminos.png).
+   - Generación de base de datos de metadatos en JSON (corpus_metadatos.json).
+
+2. ejecutar.bat:
+   Lanzador directo para Windows. Puedes darle doble clic y ejecutará
+   automáticamente la aplicación mostrando los resultados en consola.
+
+3. corpus_metadatos.json:
+   Archivo JSON con los metadatos de cada uno de los 20 artículos 
+   (ID, nombre de archivo, número de páginas, cantidad de palabras en abstract) 
+   para futuros requerimientos de cruce de información.
+
+4. top15_terminos.png:
+   Gráfica exportada del Top 15 de términos más frecuentes.
+
+======================================================================
+CÓMO EJECUTAR DESDE TERMINAL O POWERSHELL:
+& "C:\Program Files\PostgreSQL\18\pgAdmin 4\python\python.exe" ranking_bibliometria.py
+======================================================================
