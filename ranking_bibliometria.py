@@ -13,8 +13,16 @@ import unicodedata
 from pypdf import PdfReader
 import matplotlib.pyplot as plt
 
-# Directorio donde residen los 20 artículos
-FOLDER = r"C:\Users\juand\OneDrive\Escritorio\Articulos_Algoritmos"
+# Directorio donde residen los 20 artículos (detección inteligente local o en Escritorio)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+POSSIBLE_FOLDERS = [
+    os.path.join(SCRIPT_DIR, "articulos"),
+    os.path.join(SCRIPT_DIR, "Articulos_Algoritmos"),
+    r"C:\Users\juand\OneDrive\Escritorio\Articulos_Algoritmos",
+    os.path.expanduser(r"~\Desktop\Articulos_Algoritmos"),
+    os.path.expanduser(r"~\OneDrive\Escritorio\Articulos_Algoritmos")
+]
+FOLDER = next((d for d in POSSIBLE_FOLDERS if os.path.exists(d)), POSSIBLE_FOLDERS[2])
 
 # Directorio de salida
 OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
